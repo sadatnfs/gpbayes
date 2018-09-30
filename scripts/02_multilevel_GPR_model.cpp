@@ -46,7 +46,7 @@ SparseMatrix<Type> ar_Q(int N, Type rho, Type sigma) {
   return Q;
 }
 
-// NAME:ar_Q
+// NAME:iid_Q
 // DESC: helper function to make precision matrix of an IID process
 // Inputs:
 //    N: number of elements in vector
