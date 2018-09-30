@@ -1,0 +1,29 @@
+sudo: required
+
+language: r
+
+os:
+  - linux
+
+
+# Setup TMB dependencies
+before_install:
+  - R -e 'install.packages(c("Matrix", "RcppEigen", "numDeriv"),  repos="http://cran.us.r-project.org", dependencies=T)'
+
+## Cache R packages
+cache: packages
+
+## Set up TMB
+install:
+  - R -e 'install.packages("TMB")'
+
+jobs:
+  include:
+    - stage: Compile the TMB Model to make sure it has no compile error
+      script:
+        - R -e 'TMB::compile("scripts/02_multilevel_GPR_model.cpp")'
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
