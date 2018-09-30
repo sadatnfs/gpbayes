@@ -8,7 +8,8 @@
 
 rm(list = ls())
 pacman::p_load(
-  data.table, TMB, ggplot2, geostatsp, INLA, brinla, MASS,
+  data.table, TMB, ggplot2, geostatsp, 
+  INLA, brinla, MASS,
   ar.matrix, mvtnorm, Matrix, sparseMVN
 )
 
@@ -99,10 +100,8 @@ invisible(.C("setOMPthreads", as.integer(40)))
 invisible(.C("setMKLthreads", as.integer(40)))
 
 ## Clean, compile and load model
-# system('rm ~/gpbayes_GH/scripts/*.o ~/gpbayes/scripts/*.so'); TMB::compile('~/gpbayes_GH/scripts/02_multilevel_GPR_model.cpp')
+TMB::compile('~/gpbayes_GH/scripts/02_multilevel_GPR_model.cpp')
 dyn.load(dynlib("~/gpbayes_GH/scripts/02_multilevel_GPR_model"))
-
-
 
 
 ########################################################################
