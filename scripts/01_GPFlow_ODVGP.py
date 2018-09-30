@@ -9,6 +9,8 @@ from gpflow.training import NatGradOptimizer, AdamOptimizer
 from odvgp.odvgp import ODVGP, DVGP
 
 
+## The following classes are all taken from ODVGP's GH repo:
+## https://github.com/hughsalimbeni/orth_decoupled_var_gps
 class SETTINGS:
     # model
     likelihood_variance = 1e-2
@@ -110,6 +112,7 @@ class Model_ODVGP:
         return self.model.predict_f_full_cov(Xs, session=self.sess)
 
 
+### Simulating data
 def create_data(len_L, len_A, len_T):
     """
     Simulate data, use just 2 fixed effects for now
@@ -147,7 +150,9 @@ def create_data(len_L, len_A, len_T):
 
 
 def train_test_split(data):
-    ## Create train-test data splits (drop every 2 years)
+    """
+    Create train-test data splits (drop every 2 years)
+    """
     data_train = data[::2]
     data_test = data
 
