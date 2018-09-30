@@ -1,4 +1,4 @@
-Fitting multidimensional Gaussian processes
+Fitting Multidimensional Gaussian Process Regressions
 ============================================
 
 
@@ -8,5 +8,10 @@ Fitting multidimensional Gaussian processes
 Contents include:
 - Simulating multidimensional data across location, age, and time
 - Fitting GPs in GPFlow and TMB
-- Testing scalability
+- Testing scalability for larger dimensional models
 
+
+
+Model:
+ 
+$$ Y_{c,a,t} = X^\beta + \Sigma $$
