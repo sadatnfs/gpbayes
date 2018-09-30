@@ -14,4 +14,4 @@ Contents include:
 
 Model:
  
-$$ Y_{c,a,t} = X^\beta + \Sigma $$
+$ Y_{c,a,t} = X^\beta{} + \Sigma $
